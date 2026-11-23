@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS rinks (id INTEGER PRIMARY KEY, name TEXT NOT NULL, capacity INTEGER NOT NULL, rink_kind TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS skating (id INTEGER PRIMARY KEY, title TEXT NOT NULL, slug TEXT NOT NULL UNIQUE, session_kind TEXT NOT NULL, start_date TEXT NOT NULL, duration INTEGER NOT NULL, skaters INTEGER NOT NULL, status TEXT NOT NULL, rink_id INTEGER NOT NULL REFERENCES rinks(id));
+SELECT * FROM skating;
+SELECT * FROM skating WHERE skaters >= 50;
+SELECT s.title, r.name FROM skating s JOIN rinks r ON s.rink_id = r.id;
+SELECT * FROM skating ORDER BY start_date DESC;
+SELECT * FROM skating ORDER BY skaters DESC LIMIT 5;
+SELECT COUNT(*) AS total FROM skating;
+SELECT session_kind, COUNT(*) AS total FROM skating GROUP BY session_kind;
+SELECT session_kind, COUNT(*) AS total FROM skating GROUP BY session_kind HAVING COUNT(*) >= 2;

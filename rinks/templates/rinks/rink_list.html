@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block title %}Катки{% endblock %}{% block content %}<h1>Катки</h1><div class="cards">{% for rink in rinks %}<article class="card"><h2>{{ rink.name }}</h2><p>Вместимость: {{ rink.capacity }} человек</p><p>Тип: {{ rink.rink_kind }}</p></article>{% empty %}<p class="empty">Катки не найдены.</p>{% endfor %}</div>{% endblock %}

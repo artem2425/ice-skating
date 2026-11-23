@@ -1,0 +1,1 @@
+document.querySelectorAll('.more').forEach(button => { button.addEventListener('click', () => { const extra = button.nextElementSibling; extra.hidden = !extra.hidden; button.setAttribute('aria-expanded', String(!extra.hidden)); button.textContent = extra.hidden ? 'Дополнительно' : 'Скрыть'; }); });
